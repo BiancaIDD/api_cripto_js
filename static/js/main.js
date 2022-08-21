@@ -4,10 +4,18 @@ async function fetchCryptoConversion(cryptoSymbol, currencySymbol) {
   const apiKey =
     'eb4efb03395c2b9ddf754369c88444bac8d34046d33829980b2ea90bde33b3c1';
   let response = await fetch(
-    `https://min-api.cryptocompare.com/data/pricemultifull?fsym=${cryptoSymbol}&tsyms=${currencySymbol}&api_key=${apiKey}`
+    `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cryptoSymbol}&tsyms=${currencySymbol}&api_key=${apiKey}`
   );
   let conversion = await response.json();
-  return conversion;
+
+  if (
+    conversion.hasOwnProperty('Response') &&
+    conversion['Response'] === 'Error'
+  ) {
+    throw 'No se pudo realizar la peticion';
+  }
+
+  return conversion['DISPLAY'][cryptoSymbol][currencySymbol];
 }
 
 function showError(error) {
@@ -21,11 +29,16 @@ function showConversion(conversion) {
   const informationSection = document.getElementById('information');
   informationSection.style.display = 'block';
 
-  informationSection.querySelector("#information__price")
-  informationSection.querySelector("#information__highest-price")
-  informationSection.querySelector("#information__lowest-price")
-  informationSection.querySelector("#information__variation")
-  informationSection.querySelector("#information__last-update")
+  informationSection.querySelector('#information__price').innerHTML =
+    conversion['PRICE'];
+  informationSection.querySelector('#information__highest-price').innerHTML =
+    conversion['HIGH24HOUR'];
+  informationSection.querySelector('#information__lowest-price').innerHTML =
+    conversion['LOW24HOUR'];
+  informationSection.querySelector('#information__variation').innerHTML =
+    conversion['CHANGE24HOUR'];
+  informationSection.querySelector('#information__last-update').innerHTML =
+    conversion['LASTUPDATE'];
 }
 
 function hideResponseSections() {
