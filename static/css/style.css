@@ -49,6 +49,11 @@ button {
   color: white;
   border-color: transparent;
   background-color: #1139a9;
+  transition: ease-out 0.4s;
+}
+
+button:hover {
+  background-color: #0077b6;
 }
 
 #information,
