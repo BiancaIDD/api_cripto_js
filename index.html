@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cryptocotizador</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <title>Cryptocotizador</title>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Cotizador de Criptomonedas</h1>
+        <form id="crypto-form">
+          <select id="crypto-form__currency">
+            <option disabled selected value>Elige tu moneda</option>
+            <option value="USD">Dolar Estadounidense</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">Libras</option>
+            <option value="PEN">Soles</option>
+            <option value="MXN">Pesos Mexicanos</option>
+            <option value="COP">Pesos Colombianos</option>
+          </select>
+          <select id="crypto-form__crypto">
+            <option disabled selected value>Elige tu criptomoneda</option>
+            <option value="BTC">Bitcoin</option>
+            <option value="ETH">Ethereum</option>
+            <option value="USDT">Tether</option>
+            <option value="USDC">USD Coin</option>
+            <option value="BNB">Binance Coin</option>
+            <option value="XRP">XRP</option>
+            <option value="SOL">Solana</option>
+            <option value="BUSD">BUSD</option>
+            <option value="ADA">Cardano</option>
+            <option value="DOGE">Dogecoin</option>
+          </select>
+          <button type="submit">Cotizar</button>
+        </form>
+        <section id="information">
+          <p>Precio: <span id="information__price"></span></p>
+          <p>
+            Precio mas alto del dia:
+            <span id="information__highest-price"></span>
+          </p>
+          <p>
+            Precio mas bajo del dia:
+            <span id="information__lowest-price"></span>
+          </p>
+          <p>
+            Variacion ultimas 24 horas:
+            <span id="information__variation"></span>
+          </p>
+          <p>
+            Ultima actualizacion: <span id="information__last-update"></span>
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
 </html>
