@@ -17,6 +17,11 @@ body {
   background-size: cover;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 article,
 form {
   display: flex;
@@ -63,4 +68,25 @@ button:hover {
 
 #form-error__message {
   color: red;
+}
+
+@media screen and (max-width: 650px) {
+  body {
+    font-size: 15px;
+  }
+
+  main,
+  article,
+  form {
+    width: 100%;
+  }
+
+  select,
+  button {
+    width: 90%;
+  }
+
+  body {
+    background-repeat: repeat;
+  }
 }
