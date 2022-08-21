@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('../img/background.png');
+  background-image: url("../img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -22,7 +22,13 @@ img {
   height: auto;
 }
 
-article,
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.cripto-container,
 form {
   display: flex;
   flex-direction: column;
@@ -30,13 +36,24 @@ form {
   justify-content: center;
 }
 
-article {
-  width: 600px;
+.cripto-container {
   height: 400px;
   color: white;
   background-color: #183059;
   gap: 35px;
   border-radius: 10px;
+}
+
+.link-image {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: center;
+}
+
+.cripto-container,
+.link-image {
+  width: 600px;
 }
 
 form {
